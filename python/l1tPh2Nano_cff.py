@@ -1,6 +1,8 @@
 import FWCore.ParameterSet.Config as cms
 # from PhysicsTools.NanoAOD.nano_eras_cff import *
 from PhysicsTools.NanoAOD.common_cff import *
+from PhysicsTools.L1Nano.l1tPh2MuNanotables_cff import *
+
 
 l1tPh2NanoTask = cms.Task()
 
@@ -71,3 +73,8 @@ def addFullPh2L1Nano(process):
 
     return process
 
+
+def addPh2L1MuonObjects(process):
+    addGenObjects(process)
+    process.l1tPh2NanoTask.add(p2L1MuTablesTask)
+    return process
